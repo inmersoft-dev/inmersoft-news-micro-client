@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
@@ -6,11 +7,14 @@ import PropTypes from "prop-types";
 import { css } from "@emotion/css";
 
 // @mui/material
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 // sito components
 import SitoContainer from "sito-container";
 import SitoImage from "sito-image";
+
+// components
+import AnimationLine from "../AnimationLine/AnimationLine";
 
 // utils
 import { parseDate } from "../../utils/parsers";
@@ -23,22 +27,28 @@ import noPhoto from "../../assets/images/noPhoto.png";
 import noMediumPhoto from "../../assets/images/noMediumPhoto.jpg";
 
 const NewsContent = (props) => {
-  const { item, hideUserImage, hasImage } = props;
+  const { item, hideUserImage, hasImage, fullLink } = props;
+
+  const [titleHover, setTitleHover] = useState(false);
+
   return (
     <>
       {!hideUserImage ? (
-        <Typography fontWeight="bold" variant="h5">
+        <Typography
+          onMouseEnter={() => setTitleHover(true)}
+          onMouseLeave={() => setTitleHover(false)}
+          fontWeight="bold"
+          variant="h5"
+        >
           {item.title}
+          {fullLink ? <AnimationLine active={titleHover} /> : null}
         </Typography>
       ) : null}
       {!hasImage ? (
-        <Box
-          flexDirection="column"
-          sx={{ marginTop: { xs: "10px", md: "20px" } }}
-        >
+        <SitoContainer flexDirection="column" sx={{ marginTop: "20px" }}>
           <Typography variant="body1">{item.shortDescription}</Typography>
           <Typography variant="caption">{parseDate(item.date)}</Typography>
-        </Box>
+        </SitoContainer>
       ) : (
         <SitoImage
           sx={{ width: "100%", height: "250px", objectFit: "cover" }}
@@ -46,11 +56,24 @@ const NewsContent = (props) => {
           alt={item.title}
         />
       )}
+      {hideUserImage ? (
+        <Typography
+          onMouseEnter={() => setTitleHover(true)}
+          onMouseLeave={() => setTitleHover(false)}
+          fontWeight="bold"
+          variant="h5"
+          sx={{ marginTop: "10px" }}
+        >
+          {item.title}
+          {fullLink ? <AnimationLine active={titleHover} /> : null}
+        </Typography>
+      ) : null}
     </>
   );
 };
 
 NewsContent.defaultProps = {
+  fullLink: true,
   hasImage: false,
   hideUserImage: false,
 };
@@ -62,12 +85,15 @@ NewsContent.propTypes = {
     date: PropTypes.number,
     author: PropTypes.shape({ name: PropTypes.string, role: PropTypes.string }),
   }),
+  fullLink: PropTypes.bool,
   hasImage: PropTypes.bool,
   hideUserImage: PropTypes.bool,
 };
 
 const NewsBody = (props) => {
   const { item, hasImage, hideUserImage, fullLink } = props;
+
+  const [authorHover, setAuthorHover] = useState(false);
 
   const { languageState } = useLanguage();
 
@@ -89,25 +115,20 @@ const NewsBody = (props) => {
           item={item}
           hasImage={hasImage}
           hideUserImage={hideUserImage}
+          fullLink={false}
         />
       )}
-      {hideUserImage ? (
-        <Typography fontWeight="bold" variant="h5" sx={{ marginTop: "10px" }}>
-          {item.title}
-        </Typography>
-      ) : null}
+
       <Link
         to={`/search?user=${item.author.id}`}
         className={css({ textDecoration: "none", color: "inherit" })}
       >
-        <Box
-          sx={{
-            display: "flex",
-            marginTop: {
-              xs: !hideUserImage ? "20px" : "10px",
-              md: !hideUserImage ? "40px" : "20px",
-            },
+        <SitoContainer
+          extraProps={{
+            onMouseEnter: () => setAuthorHover(true),
+            onMouseLeave: () => setAuthorHover(false),
           }}
+          sx={{ marginTop: !hideUserImage ? "40px" : "20px" }}
         >
           {!hideUserImage ? (
             <SitoImage
@@ -126,12 +147,13 @@ const NewsBody = (props) => {
             >
               {hideUserImage ? `${languageState.texts.NewsBody.by} ` : null}
               {item.author.name}
+              <AnimationLine active={authorHover} sx={{ marginTop: "-5px" }} />
             </Typography>
             {!hideUserImage ? (
               <Typography variant="caption">{item.author.role}</Typography>
             ) : null}
           </SitoContainer>
-        </Box>
+        </SitoContainer>
       </Link>
     </>
   );
