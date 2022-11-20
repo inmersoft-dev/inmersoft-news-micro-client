@@ -1,4 +1,5 @@
 import * as ReactDOMClient from "react-dom/client";
+import "@fontsource/josefin-sans";
 
 // context
 import { ModeProvider } from "./context/ModeProvider";

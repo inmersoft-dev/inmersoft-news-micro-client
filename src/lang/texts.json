@@ -1,13 +1,24 @@
 {
   "es": {
     "NewsBody": {
-      "by": "by"
+      "by": "por"
+    },
+    "Home": {
+      "Title": "Últimas noticias"
     },
     "Navbar": {
+      "Contact": {
+        "Number": { "Number": "+5555555555", "Text": "Llámanos" },
+        "Email": "email@provider.com"
+      },
       "Links": [
         {
           "to": "/news",
           "label": "Noticias"
+        },
+        {
+          "to": "/apps",
+          "label": "Aplicaciones"
         }
       ]
     }

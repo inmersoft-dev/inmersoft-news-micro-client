@@ -30,7 +30,7 @@ const NewsBody = (props) => {
         </Typography>
       ) : null}
       {!hasImage ? (
-        <SitoContainer flexDirection="column">
+        <SitoContainer flexDirection="column" sx={{ marginTop: "20px" }}>
           <Typography variant="body1">{item.shortDescription}</Typography>
           <Typography variant="caption">{parseDate(item.date)}</Typography>
         </SitoContainer>
