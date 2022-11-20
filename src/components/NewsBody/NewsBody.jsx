@@ -70,11 +70,6 @@ const NewsBody = (props) => {
 
   return (
     <>
-      {hideUserImage ? (
-        <Typography fontWeight="bold" variant="h5" sx={{ marginTop: "10px" }}>
-          {item.title}
-        </Typography>
-      ) : null}
       {fullLink ? (
         <Link
           to={`/details?id=${item.id}`}
@@ -93,7 +88,11 @@ const NewsBody = (props) => {
           hideUserImage={hideUserImage}
         />
       )}
-
+      {hideUserImage ? (
+        <Typography fontWeight="bold" variant="h5" sx={{ marginTop: "10px" }}>
+          {item.title}
+        </Typography>
+      ) : null}
       <Link
         to={`/search?user=${item.author.id}`}
         className={css({ textDecoration: "none", color: "inherit" })}
