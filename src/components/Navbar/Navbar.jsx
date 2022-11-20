@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 // @mui/material
 import { Divider, Link as MUILink, Typography } from "@mui/material";
 
+// animation
+import { hoverUnderline } from "../../animation/animation";
+
 // sito components
 import SitoContainer from "sito-container";
 import SitoImage from "sito-image";
@@ -30,7 +33,7 @@ const Navbar = () => {
           underline="none"
           fontWeight="bold"
           variant="caption"
-          sx={{ marginRight: "10px", marginTop: "1px" }}
+          sx={{ marginRight: "10px", marginTop: "1px", ...hoverUnderline }}
           href={`tel:${languageState.texts.Navbar.Contact.Number.Number}`}
         >
           {languageState.texts.Navbar.Contact.Number.Text} (
@@ -47,7 +50,7 @@ const Navbar = () => {
           underline="none"
           fontWeight="bold"
           variant="caption"
-          sx={{ marginLeft: "10px" }}
+          sx={{ marginLeft: "10px", ...hoverUnderline }}
           href={`mailto:${languageState.texts.Navbar.Contact.Email}`}
         >
           {languageState.texts.Navbar.Contact.Email}
@@ -56,7 +59,11 @@ const Navbar = () => {
       <SitoContainer sx={{ gap: "30px" }}>
         {languageState.texts.Navbar.Links.map((item) => (
           <Link key={item.to} to={item.to}>
-            <Typography color="primary" variant="caption">
+            <Typography
+              color="primary"
+              variant="caption"
+              sx={{ ...hoverUnderline }}
+            >
               {item.label}
             </Typography>
           </Link>

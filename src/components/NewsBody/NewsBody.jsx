@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
@@ -7,14 +6,14 @@ import PropTypes from "prop-types";
 import { css } from "@emotion/css";
 
 // @mui/material
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 // sito components
 import SitoContainer from "sito-container";
 import SitoImage from "sito-image";
 
-// components
-import AnimationLine from "../AnimationLine/AnimationLine";
+// animation
+import { hoverUnderline } from "../../animation/animation";
 
 // utils
 import { parseDate } from "../../utils/parsers";
@@ -29,19 +28,44 @@ import noMediumPhoto from "../../assets/images/noMediumPhoto.jpg";
 const NewsContent = (props) => {
   const { item, hideUserImage, hasImage, fullLink } = props;
 
-  const [titleHover, setTitleHover] = useState(false);
-
   return (
-    <>
+    <Box
+      sx={
+        fullLink
+          ? {
+              h5: {
+                "&:after": {
+                  content: '""',
+                  position: "absolute",
+                  width: "100%",
+                  transform: "scaleX(0)",
+                  height: "2px",
+                  bottom: 0,
+                  left: 0,
+                  backgroundColor: "black",
+                  transformOrigin: "bottom right",
+                  transition: "transform 0.25s ease-out",
+                },
+              },
+              "&:hover": {
+                h5: {
+                  "&:after": {
+                    transform: "scaleX(1)",
+                    transformOrigin: "bottom left",
+                  },
+                },
+              },
+            }
+          : {}
+      }
+    >
       {!hideUserImage ? (
         <Typography
-          onMouseEnter={() => setTitleHover(true)}
-          onMouseLeave={() => setTitleHover(false)}
           fontWeight="bold"
           variant="h5"
+          sx={fullLink ? { ...hoverUnderline } : {}}
         >
           {item.title}
-          {fullLink ? <AnimationLine active={titleHover} /> : null}
         </Typography>
       ) : null}
       {!hasImage ? (
@@ -58,17 +82,14 @@ const NewsContent = (props) => {
       )}
       {hideUserImage ? (
         <Typography
-          onMouseEnter={() => setTitleHover(true)}
-          onMouseLeave={() => setTitleHover(false)}
           fontWeight="bold"
           variant="h5"
-          sx={{ marginTop: "10px" }}
+          sx={{ marginTop: "10px", ...(fullLink ? hoverUnderline : {}) }}
         >
           {item.title}
-          {fullLink ? <AnimationLine active={titleHover} /> : null}
         </Typography>
       ) : null}
-    </>
+    </Box>
   );
 };
 
@@ -92,8 +113,6 @@ NewsContent.propTypes = {
 
 const NewsBody = (props) => {
   const { item, hasImage, hideUserImage, fullLink } = props;
-
-  const [authorHover, setAuthorHover] = useState(false);
 
   const { languageState } = useLanguage();
 
@@ -124,11 +143,31 @@ const NewsBody = (props) => {
         className={css({ textDecoration: "none", color: "inherit" })}
       >
         <SitoContainer
-          extraProps={{
-            onMouseEnter: () => setAuthorHover(true),
-            onMouseLeave: () => setAuthorHover(false),
+          sx={{
+            marginTop: !hideUserImage ? "40px" : "20px",
+            h6: {
+              "&:after": {
+                content: '""',
+                position: "absolute",
+                width: "100%",
+                transform: "scaleX(0)",
+                height: "2px",
+                bottom: 0,
+                left: 0,
+                backgroundColor: "black",
+                transformOrigin: "bottom right",
+                transition: "transform 0.25s ease-out",
+              },
+            },
+            "&:hover": {
+              h6: {
+                "&:after": {
+                  transform: "scaleX(1)",
+                  transformOrigin: "bottom left",
+                },
+              },
+            },
           }}
-          sx={{ marginTop: !hideUserImage ? "40px" : "20px" }}
         >
           {!hideUserImage ? (
             <SitoImage
@@ -144,10 +183,10 @@ const NewsBody = (props) => {
             <Typography
               fontWeight={!hideUserImage ? "bold" : null}
               variant="subtitle1"
+              sx={{ ...hoverUnderline }}
             >
               {hideUserImage ? `${languageState.texts.NewsBody.by} ` : null}
               {item.author.name}
-              <AnimationLine active={authorHover} sx={{ marginTop: "-5px" }} />
             </Typography>
             {!hideUserImage ? (
               <Typography variant="caption">{item.author.role}</Typography>
