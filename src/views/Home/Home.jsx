@@ -1,5 +1,5 @@
 // @mui/material
-import { Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 
 // sito components
 import SitoContainer from "sito-container";
@@ -34,11 +34,11 @@ const Home = () => {
           marginBottom: "40px",
         }}
       />
-      <SitoContainer>
+      <Box sx={{ display: "flex", flexDirection: { xs: "column", lg: "row" } }}>
         <NoPhoto />
         <Lasted />
         <Old />
-      </SitoContainer>
+      </Box>
     </SitoContainer>
   );
 };

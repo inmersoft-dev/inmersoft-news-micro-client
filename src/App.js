@@ -41,7 +41,11 @@ const App = () => {
       <ThemeProvider theme={modeState.mode === "light" ? light : dark}>
         <CssBaseline />
         <Notification />
-        <Box sx={{ padding: { xl: "20px 5rem", lg: "20px 4rem" } }}>
+        <Box
+          sx={{
+            padding: { xl: "20px 5rem", lg: "20px 4rem", xs: "20px" },
+          }}
+        >
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Main />}>

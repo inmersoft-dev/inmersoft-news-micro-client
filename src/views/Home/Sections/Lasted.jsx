@@ -1,6 +1,8 @@
 // sito components
-import SitoContainer from "sito-container";
 import SitoImage from "sito-image";
+
+// @mui/material
+import { Box } from "@mui/material";
 
 // local
 import { lasted } from "../../../data/data";
@@ -15,9 +17,12 @@ import noBigImage from "../../../assets/images/noBigPhoto.jpg";
 const Lasted = () => {
   return (
     <InViewComponent delay="0.1s">
-      <SitoContainer
+      <Box
         flexDirection="column"
-        sx={{ height: "100%", margin: "0 40px" }}
+        sx={{
+          height: "100%",
+          margin: { lg: "0 40px", md: "0 0 20px 0", xs: "0" },
+        }}
       >
         <SitoImage
           src={lasted.image || noBigImage}
@@ -31,7 +36,7 @@ const Lasted = () => {
         />
 
         <NewsBody item={{ ...lasted }} />
-      </SitoContainer>
+      </Box>
     </InViewComponent>
   );
 };

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { css } from "@emotion/css";
 
 // @mui/material
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 // sito components
 import SitoContainer from "sito-container";
@@ -32,10 +32,13 @@ const NewsContent = (props) => {
         </Typography>
       ) : null}
       {!hasImage ? (
-        <SitoContainer flexDirection="column" sx={{ marginTop: "20px" }}>
+        <Box
+          flexDirection="column"
+          sx={{ marginTop: { xs: "10px", md: "20px" } }}
+        >
           <Typography variant="body1">{item.shortDescription}</Typography>
           <Typography variant="caption">{parseDate(item.date)}</Typography>
-        </SitoContainer>
+        </Box>
       ) : (
         <SitoImage
           sx={{ width: "100%", height: "250px", objectFit: "cover" }}
@@ -97,7 +100,15 @@ const NewsBody = (props) => {
         to={`/search?user=${item.author.id}`}
         className={css({ textDecoration: "none", color: "inherit" })}
       >
-        <SitoContainer sx={{ marginTop: !hideUserImage ? "40px" : "20px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            marginTop: {
+              xs: !hideUserImage ? "20px" : "10px",
+              md: !hideUserImage ? "40px" : "20px",
+            },
+          }}
+        >
           {!hideUserImage ? (
             <SitoImage
               sx={{ width: "48x", height: "48px", borderRadius: "40%" }}
@@ -120,7 +131,7 @@ const NewsBody = (props) => {
               <Typography variant="caption">{item.author.role}</Typography>
             ) : null}
           </SitoContainer>
-        </SitoContainer>
+        </Box>
       </Link>
     </>
   );
