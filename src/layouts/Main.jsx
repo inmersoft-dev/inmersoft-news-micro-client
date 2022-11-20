@@ -9,9 +9,7 @@ import Navbar from "../components/Navbar/Navbar";
 
 const Main = () => {
   return (
-    <SitoContainer
-      sx={{ width: "100vw", height: "100vh", flexDirection: "column" }}
-    >
+    <SitoContainer sx={{ minHeight: "100vh", flexDirection: "column" }}>
       <Navbar />
       <Outlet />
       <Footer />

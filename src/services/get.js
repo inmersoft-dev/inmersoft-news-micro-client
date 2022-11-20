@@ -10,7 +10,7 @@ import config from "../config";
 
 export const connectionState = async () => {
   try {
-    const response = await axios.get(`${config.serverUrl}/status`, {
+    const response = await axios.get(`${config.apiUrl}/news`, {
       headers: getAuth,
     });
     const result = response.status;
