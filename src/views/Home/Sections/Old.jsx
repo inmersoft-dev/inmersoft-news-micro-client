@@ -14,7 +14,7 @@ const Old = () => {
       {old.map((item, i) => (
         <InViewComponent delay={`0.${i + 2}s`} key={item.id}>
           <SitoContainer flexDirection="column" sx={{ marginBottom: "40px" }}>
-            <NewsBody item={{ ...item }} hasImage hideUserImage />
+            <NewsBody item={{ ...item }} hasImage hideUserImage fullLink />
           </SitoContainer>
         </InViewComponent>
       ))}

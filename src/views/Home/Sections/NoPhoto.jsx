@@ -14,7 +14,7 @@ const NoPhoto = () => {
       {noPhotoNews.map((item, i) => (
         <InViewComponent delay={`0.${i + 2}s`} key={item.id}>
           <SitoContainer flexDirection="column" sx={{ marginBottom: "40px" }}>
-            <NewsBody item={{ ...item }} />
+            <NewsBody item={{ ...item }} fullLink />
           </SitoContainer>
         </InViewComponent>
       ))}

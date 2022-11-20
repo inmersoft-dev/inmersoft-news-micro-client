@@ -8,6 +8,7 @@ export const noPhotoNews = [
     author: {
       name: "Marina Sherof",
       role: "Reporter",
+      id: 1,
     },
   },
   {
@@ -19,6 +20,7 @@ export const noPhotoNews = [
     author: {
       name: "Jason Robert",
       role: "Publisher",
+      id: 2,
     },
   },
 ];
@@ -29,14 +31,16 @@ export const old = [
     title: "To Become Happier, Ask Yourself These Two Questions Every Night",
     author: {
       name: "Jonathan O'Connell",
+      id: 3,
     },
   },
-  
+
   {
     id: "2",
     title: "10 Things I Stole From People Smarter Than Me",
     author: {
       name: "Jonathan O'Connell",
+      id: 3,
     },
   },
 ];
@@ -48,7 +52,8 @@ export const lasted = {
     "Yeah, it's safe to say these guys have a great sense of humor. Which isn't really surprising for us, considering their seemingly absurd solution to online payments. Instead of chasing 1000-hour programming contracts to build clunky payments solutions for each individual client, the Collison.",
   date: 1668907137226,
   author: {
-    name: "James Robert",
+    name: "Andrew Von Dom",
     role: "Editor",
+    id: 4,
   },
 };
