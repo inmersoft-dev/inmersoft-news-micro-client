@@ -7,6 +7,9 @@ import { useLanguage } from "../../context/LanguageProvider";
 // components
 import InViewComponent from "../../components/InViewComponent/InViewComponent";
 
+// home section
+import Old from "./Sections/Old";
+
 // styles
 import "./style.css";
 
@@ -19,25 +22,26 @@ const NotFound = () => {
         width: "100vw",
         height: "100vh",
         display: "flex",
-        gap: "100px",
+        flexDirection: "column",
         padding: "40px",
       }}
     >
-      <Box
-        sx={{
-          flex: 1,
-          position: "relative",
-          display: "flex",
-          alignItems: "flex-start",
-          paddingLeft: "40px",
-        }}
-      >
-        <InViewComponent>
-          <Typography variant="h2" sx={{ position: "relative", float: "left" }}>
-            {languageState.texts.NotFound.Title}
-          </Typography>
-        </InViewComponent>
-      </Box>
+      <InViewComponent>
+        <Typography variant="h2" sx={{ marginBottom: 0 }}>
+          {languageState.texts.NotFound.Title}
+        </Typography>
+      </InViewComponent>
+      <InViewComponent delay="1.5s">
+        <Typography variant="h4">
+          {languageState.texts.NotFound.Subtitle.one}
+        </Typography>
+      </InViewComponent>
+      <InViewComponent delay="2.5s">
+        <Typography variant="h4">
+          {languageState.texts.NotFound.Subtitle.two}
+        </Typography>
+      </InViewComponent>
+      <Old />
     </Box>
   );
 };

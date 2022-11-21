@@ -1,11 +1,18 @@
 {
   "es": {
     "NotFound": {
-      "Title": "No encontramos la página que buscas"
+      "Title": "No encontramos la página que buscas",
+      "Subtitle": { "one": "pero...", "two": "tal vez te interese esto:" }
     },
     "Footer": {
       "Company": "Inmersoft©",
       "Date": "2022"
+    },
+    "Hero": {
+      "Title": "Noticias",
+      "Company": "Inmersoft",
+      "Description": "Accede a las noticias de todas las aplicaciones de inmersoft.",
+      "Button": "Ver Ahora"
     },
     "NewsBody": {
       "ReadMore": "Leer más",
