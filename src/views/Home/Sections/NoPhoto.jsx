@@ -1,8 +1,5 @@
 import PropTypes from "prop-types";
 
-// sito components
-import SitoContainer from "sito-container";
-
 // @mui/material
 import { Box } from "@mui/material";
 

@@ -23,9 +23,7 @@ const Notification = () => {
     setOpen(notificationState.visible);
   }, [notificationState]);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClose = () => setOpen(false);
 
   const ref = useOnclickOutside(() => {
     setOpen(false);

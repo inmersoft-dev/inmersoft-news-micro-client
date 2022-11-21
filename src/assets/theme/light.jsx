@@ -147,7 +147,7 @@ const light = createTheme({
       fontWeight: 500,
       lineHeight: 1.75,
       letterSpacing: "0.02em",
-      fontFamily: "'Vinegar', serif",
+      fontFamily: "Josefin Sans, sans-serif",
     },
     caption: {
       fontSize: "0.8rem",
