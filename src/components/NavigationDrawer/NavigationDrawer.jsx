@@ -41,7 +41,9 @@ const NavigationDrawer = (props) => {
 
   const keyPress = useCallback(() => {}, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    
+  }, []);
 
   return (
     <SitoContainer

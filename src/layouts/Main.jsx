@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
-// sito components
-import SitoContainer from "sito-container";
+// @mui/material
+import { Box } from "@mui/material";
 
 // own components
 import Footer from "../components/Footer/Footer";
@@ -9,11 +9,18 @@ import Navbar from "../components/Navbar/Navbar";
 
 const Main = () => {
   return (
-    <SitoContainer sx={{ minHeight: "100vh", flexDirection: "column" }}>
+    <Box
+      sx={{
+        display: "flex",
+        minHeight: "100vh",
+        flexDirection: "column",
+        padding: { xl: "20px 5rem", lg: "20px 4rem", xs: "20px" },
+      }}
+    >
       <Navbar />
       <Outlet />
       <Footer />
-    </SitoContainer>
+    </Box>
   );
 };
 

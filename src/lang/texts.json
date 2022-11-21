@@ -1,5 +1,8 @@
 {
   "es": {
+    "NotFound": {
+      "Title": "No encontramos la página que buscas"
+    },
     "Footer": {
       "Company": "Inmersoft©",
       "Date": "2022"
