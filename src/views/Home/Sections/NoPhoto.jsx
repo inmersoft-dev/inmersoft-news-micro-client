@@ -20,6 +20,7 @@ const NoPhoto = (props) => {
     <Box
       sx={{
         display: "flex",
+        marginTop: { xs: "20px", md: 0 },
         flexDirection: { xs: "column", md: "row", lg: "column" },
         gap: "20px",
         order: {

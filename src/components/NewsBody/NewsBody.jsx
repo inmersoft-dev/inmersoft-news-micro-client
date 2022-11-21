@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { css } from "@emotion/css";
 
 // @mui/material
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button, Link as MUILink } from "@mui/material";
 
 // sito components
 import SitoContainer from "sito-container";
@@ -117,7 +117,7 @@ const NewsBody = (props) => {
   const { languageState } = useLanguage();
 
   return (
-    <>
+    <Box>
       {fullLink ? (
         <Link
           to={`/details?id=${item.id}`}
@@ -137,7 +137,20 @@ const NewsBody = (props) => {
           fullLink={false}
         />
       )}
-
+      {!fullLink ? (
+        <Button
+          variant="contained"
+          sx={{ marginTop: !hideUserImage ? "40px" : "20px" }}
+        >
+          <MUILink
+            color="inherit"
+            underline="none"
+            to={`/details?id=${item.id}`}
+          >
+            {languageState.texts.NewsBody.ReadMore}
+          </MUILink>
+        </Button>
+      ) : null}
       <Link
         to={`/search?user=${item.author.id}`}
         className={css({ textDecoration: "none", color: "inherit" })}
@@ -194,7 +207,7 @@ const NewsBody = (props) => {
           </SitoContainer>
         </SitoContainer>
       </Link>
-    </>
+    </Box>
   );
 };
 
