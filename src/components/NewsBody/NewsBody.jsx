@@ -19,6 +19,7 @@ import { hoverUnderline } from "../../animation/animation";
 import { parseDate } from "../../utils/parsers";
 
 // context
+import { useMode } from "../../context/ModeProvider";
 import { useLanguage } from "../../context/LanguageProvider";
 
 // images
@@ -26,6 +27,8 @@ import noPhoto from "../../assets/images/noPhoto.png";
 import noMediumPhoto from "../../assets/images/noMediumPhoto.jpg";
 
 const NewsContent = (props) => {
+  const { modeState } = useMode();
+
   const { item, hideUserImage, hasImage, fullLink } = props;
 
   return (
@@ -35,24 +38,14 @@ const NewsContent = (props) => {
           ? {
               h5: {
                 "&:after": {
-                  content: '""',
-                  position: "absolute",
-                  width: "100%",
-                  transform: "scaleX(0)",
-                  height: "2px",
-                  bottom: 0,
-                  left: 0,
-                  backgroundColor: "black",
-                  transformOrigin: "bottom right",
-                  transition: "transform 0.25s ease-out",
+                  ...hoverUnderline["&:after"],
+                  backgroundColor:
+                    modeState.state === "light" ? "black" : "white",
                 },
               },
               "&:hover": {
                 h5: {
-                  "&:after": {
-                    transform: "scaleX(1)",
-                    transformOrigin: "bottom left",
-                  },
+                  ...hoverUnderline["&:hover"]["&:after"],
                 },
               },
             }
@@ -63,7 +56,18 @@ const NewsContent = (props) => {
         <Typography
           fontWeight="bold"
           variant="h5"
-          sx={fullLink ? { ...hoverUnderline } : {}}
+          sx={
+            fullLink
+              ? {
+                  ...hoverUnderline,
+                  "&:after": {
+                    ...hoverUnderline["&:after"],
+                    backgroundColor:
+                      modeState.mode === "light" ? "black" : "white",
+                  },
+                }
+              : {}
+          }
         >
           {item.title}
         </Typography>
@@ -84,7 +88,19 @@ const NewsContent = (props) => {
         <Typography
           fontWeight="bold"
           variant="h5"
-          sx={{ marginTop: "10px", ...(fullLink ? hoverUnderline : {}) }}
+          sx={{
+            marginTop: "10px",
+            ...(fullLink
+              ? {
+                  ...hoverUnderline,
+                  "&:after": {
+                    ...hoverUnderline["&:after"],
+                    backgroundColor:
+                      modeState.mode === "light" ? "black" : "white",
+                  },
+                }
+              : {}),
+          }}
         >
           {item.title}
         </Typography>
@@ -114,6 +130,7 @@ NewsContent.propTypes = {
 const NewsBody = (props) => {
   const { item, hasImage, hideUserImage, fullLink } = props;
 
+  const { modeState } = useMode();
   const { languageState } = useLanguage();
 
   return (
@@ -160,23 +177,15 @@ const NewsBody = (props) => {
             marginTop: !hideUserImage ? "40px" : "20px",
             h6: {
               "&:after": {
-                content: '""',
-                position: "absolute",
-                width: "100%",
-                transform: "scaleX(0)",
-                height: "2px",
-                bottom: 0,
-                left: 0,
-                backgroundColor: "black",
-                transformOrigin: "bottom right",
-                transition: "transform 0.25s ease-out",
+                ...hoverUnderline["&:after"],
+                backgroundColor:
+                  modeState.state === "light" ? "black" : "white",
               },
             },
             "&:hover": {
               h6: {
                 "&:after": {
-                  transform: "scaleX(1)",
-                  transformOrigin: "bottom left",
+                  ...hoverUnderline["&:hover"]["&:after"],
                 },
               },
             },
@@ -196,7 +205,14 @@ const NewsBody = (props) => {
             <Typography
               fontWeight={!hideUserImage ? "bold" : null}
               variant="subtitle1"
-              sx={{ ...hoverUnderline }}
+              sx={{
+                ...hoverUnderline,
+                "&:after": {
+                  ...hoverUnderline["&:after"],
+                  backgroundColor:
+                    modeState.mode === "light" ? "black" : "white",
+                },
+              }}
             >
               {hideUserImage ? `${languageState.texts.NewsBody.by} ` : null}
               {item.author.name}

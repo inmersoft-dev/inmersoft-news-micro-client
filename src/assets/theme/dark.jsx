@@ -144,7 +144,7 @@ const dark = createTheme({
     button: {
       textTransform: "capitalize",
       fontSize: "0.8rem",
-      fontWeight: 500,
+      fontWeight: "bold",
       lineHeight: 1.75,
       letterSpacing: "0.02em",
       fontFamily: "Times New Roman, serif",
