@@ -1,5 +1,22 @@
 {
   "es": {
+    "AboutUs": {
+      "Mission": {
+        "Image": "mission",
+        "Title": "Misión",
+        "Description": "Accede a las noticias de todas las aplicaciones de inmersoft."
+      },
+      "Vision": {
+        "Image": "vision",
+        "Title": "Visión",
+        "Description": "Accede a las noticias de todas las aplicaciones de inmersoft."
+      },
+      "Values": {
+        "Image": "values",
+        "Title": "Valores",
+        "Description": "Accede a las noticias de todas las aplicaciones de inmersoft."
+      }
+    },
     "NotFound": {
       "Title": "No encontramos la página que buscas",
       "Subtitle": { "one": "pero...", "two": "tal vez te interese esto:" }

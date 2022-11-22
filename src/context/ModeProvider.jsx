@@ -15,7 +15,9 @@ const modeReducer = (modeState, action) => {
   switch (action.type) {
     case "set":
       document.body.style.background =
-        action.to === "light" ? light.palette.background.default : dark.palette.background.default;
+        action.to === "light"
+          ? light.palette.background.default
+          : dark.palette.background.default;
       return {
         mode: action.to || "light",
       };
@@ -34,7 +36,7 @@ const modeReducer = (modeState, action) => {
 
 const ModeProvider = ({ children }) => {
   const [modeState, setModeState] = React.useReducer(modeReducer, {
-    mode: "light",
+    mode: "dark",
   });
 
   const value = { modeState, setModeState };
@@ -48,7 +50,8 @@ ModeProvider.propTypes = {
 // hooks
 const useMode = () => {
   const context = React.useContext(ModeContext);
-  if (context === undefined) throw new Error("modeContext must be used within a Provider");
+  if (context === undefined)
+    throw new Error("modeContext must be used within a Provider");
   return context;
 };
 

@@ -24,7 +24,7 @@ const light = createTheme({
     },
     background: {
       default: "#fafafa",
-      paper: "aliceblue",
+      paper: "#f5efef",
       button: "#f5efef",
       paper2: "#f5efef",
     },

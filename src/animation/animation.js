@@ -9,7 +9,6 @@ export const hoverUnderline = {
     height: "2px",
     bottom: 0,
     left: 0,
-    backgroundColor: "black",
     transformOrigin: "bottom right",
     transition: "transform 0.25s ease-out",
   },

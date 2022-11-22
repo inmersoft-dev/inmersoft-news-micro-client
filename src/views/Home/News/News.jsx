@@ -1,5 +1,5 @@
 // @mui/material
-import { Box, Divider, Typography } from "@mui/material";
+import { useTheme, Box, Divider, Typography } from "@mui/material";
 
 // contexts
 import { useLanguage } from "../../../context/LanguageProvider";
@@ -10,10 +10,19 @@ import Lasted from "./Lasted";
 import Old from "./Old";
 
 const News = () => {
+  const theme = useTheme();
   const { languageState } = useLanguage();
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <Box
+      id="news"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        background: theme.palette.background.paper,
+        padding: { xl: "20px 5rem", lg: "20px 4rem", xs: "20px" },
+      }}
+    >
       <Typography
         variant="h3"
         fontWeight="bold"

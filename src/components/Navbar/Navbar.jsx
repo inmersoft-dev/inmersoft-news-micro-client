@@ -14,7 +14,6 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 
 // sito components
-import SitoContainer from "sito-container";
 import SitoImage from "sito-image";
 
 // components
@@ -24,23 +23,36 @@ import NavigationDrawer from "../NavigationDrawer/NavigationDrawer";
 import { hoverUnderline } from "../../animation/animation";
 
 // contexts
+import { useMode } from "../../context/ModeProvider";
 import { useLanguage } from "../../context/LanguageProvider";
 
 // images
 import logoHorizontal from "../../assets/images/logo-horizontal.png";
 
 const Navbar = () => {
+  const { modeState } = useMode();
   const { languageState } = useLanguage();
 
   const [showDrawer, setShowDrawer] = useState(false);
 
   return (
-    <SitoContainer justifyContent="space-between" alignItems="center">
+    <Box
+      justifyContent="space-between"
+      alignItems="center"
+      sx={{
+        display: "flex",
+        padding: { xl: "20px 5rem", lg: "20px 4rem", xs: "20px" },
+      }}
+    >
       <Link to="/">
         <SitoImage
           src={logoHorizontal}
           alt="logo"
-          sx={{ width: "200px", height: "55px", filter: "grayscale(1)" }}
+          sx={{
+            width: "200px",
+            height: "55px",
+            filter: "grayscale(1)",
+          }}
         />
       </Link>
       <Box sx={{ display: { md: "flex", xs: "none" } }}>
@@ -48,7 +60,15 @@ const Navbar = () => {
           underline="none"
           fontWeight="bold"
           variant="caption"
-          sx={{ marginRight: "10px", marginTop: "1px", ...hoverUnderline }}
+          sx={{
+            marginRight: "10px",
+            marginTop: "1px",
+            ...hoverUnderline,
+            "&:after": {
+              ...hoverUnderline["&:after"],
+              backgroundColor: modeState.mode === "light" ? "black" : "white",
+            },
+          }}
           href={`tel:${languageState.texts.Navbar.Contact.Number.Number}`}
         >
           {languageState.texts.Navbar.Contact.Number.Text} (
@@ -65,7 +85,14 @@ const Navbar = () => {
           underline="none"
           fontWeight="bold"
           variant="caption"
-          sx={{ marginLeft: "10px", ...hoverUnderline }}
+          sx={{
+            marginLeft: "10px",
+            ...hoverUnderline,
+            "&:after": {
+              ...hoverUnderline["&:after"],
+              backgroundColor: modeState.mode === "light" ? "black" : "white",
+            },
+          }}
           href={`mailto:${languageState.texts.Navbar.Contact.Email}`}
         >
           {languageState.texts.Navbar.Contact.Email}
@@ -77,7 +104,14 @@ const Navbar = () => {
             <Typography
               color="primary"
               variant="caption"
-              sx={{ ...hoverUnderline }}
+              sx={{
+                ...hoverUnderline,
+                "&:after": {
+                  ...hoverUnderline["&:after"],
+                  backgroundColor:
+                    modeState.mode === "light" ? "black" : "white",
+                },
+              }}
             >
               {item.label}
             </Typography>
@@ -103,7 +137,7 @@ const Navbar = () => {
         open={showDrawer}
         handleClose={() => setShowDrawer(false)}
       />
-    </SitoContainer>
+    </Box>
   );
 };
 

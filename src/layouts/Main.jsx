@@ -14,7 +14,6 @@ const Main = () => {
         display: "flex",
         minHeight: "100vh",
         flexDirection: "column",
-        padding: { xl: "20px 5rem", lg: "20px 4rem", xs: "20px" },
       }}
     >
       <Navbar />
