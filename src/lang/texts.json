@@ -1,20 +1,18 @@
 {
   "es": {
     "AboutUs": {
-      "Mission": {
-        "Image": "mission",
-        "Title": "Misión",
-        "Description": "Accede a las noticias de todas las aplicaciones de inmersoft."
-      },
-      "Vision": {
-        "Image": "vision",
-        "Title": "Visión",
-        "Description": "Accede a las noticias de todas las aplicaciones de inmersoft."
-      },
-      "Values": {
-        "Image": "values",
-        "Title": "Valores",
-        "Description": "Accede a las noticias de todas las aplicaciones de inmersoft."
+      "Title": "Acerca de Inmersoft",
+      "Main": {
+        "Mission": {
+          "Image": "mission",
+          "Title": "Misión",
+          "Description": "Nuestra misión es digitalizar instituciones del sector turístico y patrimonial, optimizando al máximo la relación cliente-institución con nuestros servicios."
+        },
+        "Vision": {
+          "Image": "vision",
+          "Title": "Visión",
+          "Description": "Nuestra visión es servir como embajadores de la Unesco en Latinoamérica y que nuestras guías digitales interactivas sean utilizadas como medio de transición entre la cultura y la modernidad."
+        }
       }
     },
     "NotFound": {
