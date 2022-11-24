@@ -42,6 +42,9 @@ const Navbar = () => {
       sx={{
         display: "flex",
         padding: { xl: "20px 5rem", lg: "20px 4rem", xs: "20px" },
+        img: {
+          filter: modeState.mode === "light" ? "none" : "invert(1)",
+        },
       }}
     >
       <Link to="/">

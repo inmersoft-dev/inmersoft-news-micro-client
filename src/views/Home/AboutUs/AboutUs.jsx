@@ -54,14 +54,17 @@ const AboutUs = () => {
                 display: "flex",
                 flex: "1 1 40%",
                 alignItems: "center",
+                img: {
+                  filter: modeState.mode === "light" ? "none" : "invert(1)",
+                },
               }}
             >
               <SitoImage
                 src={aboutUs[item.Image]}
                 alt={item.Title}
                 sx={{
-                  width: "150px",
-                  height: "150px",
+                  width: "105px",
+                  height: "105px",
                 }}
               />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
