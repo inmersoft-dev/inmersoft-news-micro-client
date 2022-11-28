@@ -2,28 +2,32 @@
   "es": {
     "AboutUs": {
       "Title": "Acerca de Inmersoft",
-      "Main": {
-        "Mission": {
-          "Image": "mission",
-          "Title": "Misión",
-          "Description": "Nuestra misión es digitalizar instituciones del sector turístico y patrimonial, optimizando al máximo la relación cliente-institución con nuestros servicios."
-        },
-        "Vision": {
-          "Image": "vision",
-          "Title": "Visión",
-          "Description": "Nuestra visión es servir como embajadores de la Unesco en Latinoamérica y que nuestras guías digitales interactivas sean utilizadas como medio de transición entre la cultura y la modernidad."
-        }
+      "Mission": {
+        "Image": "mission",
+        "Title": "Misión",
+        "Description": "Nuestra misión es digitalizar instituciones del sector turístico y patrimonial, optimizando al máximo la relación cliente-institución con nuestros servicios."
+      },
+      "Vision": {
+        "Image": "vision",
+        "Title": "Visión",
+        "Description": "Nuestra visión es servir como embajadores de la Unesco en Latinoamérica y que nuestras guías digitales interactivas sean utilizadas como medio de transición entre la cultura y la modernidad."
       },
       "Extra": {
         "Objectives": {
           "Title": "Objetivos",
-          "Image": "objective",
-          "Targets": ["Crear una red de aplicaciones móviles Guías Digitales Interactivas de los principales destinos turísticos o sitios de alta demanda de visitantes de América que representen de manera específica los interés de cada uno de ellos.", "Conservar el Patrimonio Material e Inmaterial a través de técnicas de avanzada que permita su acceso y conservación sin incurrir en peligro para los mismos."]
+          "Image": "goal",
+          "Targets": [
+            "Crear una red de aplicaciones móviles Guías Digitales Interactivas de los principales destinos turísticos o sitios de alta demanda de visitantes de América que representen de manera específica los interés de cada uno de ellos.",
+            "Conservar el Patrimonio Material e Inmaterial a través de técnicas de avanzada que permita su acceso y conservación sin incurrir en peligro para los mismos."
+          ]
         },
         "Strategy": {
-          "Title": "Objetivos",
-          "Image": "objective",
-          "Targets": ["Realizar contacto directo con los representantes de los principales destinos en busca de colaboración (Cadenas Hoteleras, Ciudades, etc.)", "Crear sistemas de bajo costo de reproducción para lograr abarcar todos los destinos definidos."]
+          "Title": "Estrategia",
+          "Image": "strategy",
+          "Targets": [
+            "Realizar contacto directo con los representantes de los principales destinos en busca de colaboración (Cadenas Hoteleras, Ciudades, etc.)",
+            "Crear sistemas de bajo costo de reproducción para lograr abarcar todos los destinos definidos."
+          ]
         }
       }
     },
